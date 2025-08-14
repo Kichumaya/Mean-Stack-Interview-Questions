@@ -1,34 +1,37 @@
 # Interview Questions which i appeared for
 
 Technical Question:
-1)
+1.
+```javascript
 (function() {
     console.log(1); 
     setTimeout(function(){console.log(2)}, 1000); 
     setTimeout(function(){console.log(3)}, 0); 
     console.log(4);
 })();
+```
+
 => 
 Output = > 1 4 3 2
 
-2)
+2.
 Find two elements in an array such that their sum equals target return indexes
 arr = [2,4,9,6,5] and element target = 14
 
-3)
+3.
+```javascript
 console.log('start');
 const promise1 = new Promise((resolve, reject) => {
   console.log(1)
   resolve(2)
   console.log(3)
 })
-
 promise1.then(res => {
   console.log(res)
 })
 
 console.log('end');
-
+```
 => Output => start 1 3 end  2
 
 
@@ -148,24 +151,33 @@ Important concepts:-
 3. Difference between Observable and Promise. (promise are eager use .then, observable are lazy use subscribe)
 
 -- Tell me the Output:
+```javascript
 // problem 1
 console.log(isNaN(true)) // false (isNaN is always false) if there is isNaN(NaN) then true
+```
 
+```javascript
 // problem 2
 let arr = [1,2,3,4,5]
 let arr1 = [6,7,8]
 let arr2 = [...arr, ...arr1]
 arr2.splice(0, arr1.length - 1)
 console.log(arr2) // [3,4,5,6,7,8]
+```
 
+```javascript
 // problem 3
 var a = 0;
 console.log(a) // 0
+```
 
+```javascript
 // problem 4
 console.log(a); // Cannot access 'a' before initialization
 let a = 0;
+```
 
+```javascript
 // problem 5
 const promise = new Promise((resolve, reject) => {
     console.log('111');
@@ -175,11 +187,14 @@ console.log('333')
 promise.then(message => 
     console.log(message) // 111, 333, 222
 )
+```
 
 • Interview questions - 8 (Impetus AI) (Coding Programs)
 1. Find the missing elements between min and max in array. 
+```javascript
 // Input:  [5,3,8,10,14,5,7,15,17,12]
 // Output: [4,6,9,11,13,16]
+```
 
 2. JavaScript Program to Check Valid Parentheses Using String
 
@@ -213,15 +228,18 @@ promise.then(message =>
 17. Which is faster process nextTick() and setImmediate() in node?
 18. Call by reference vs Call by value. (
 e.g. call by value - Original value cant be affected
+```javascript
 function test(a){
      a = 10; 
      console.log(a) // 10
-})
+}
 let b = 5
 test(b)
 console.log(b) // 5
+```
 
 call by reference - Original value get affected
+```javascript
 function test(obj){
      object.name = 'john'
      console.log(obj) // 'john'
@@ -229,6 +247,7 @@ function test(obj){
 let person = {name: "Krish"}
 test(person)
 console.log(person) // 'john'
+```
 
 • Interview questions - 11 (roombr - Banglore - Fullstack - node + angular)
 1. Triggers in database
@@ -300,7 +319,6 @@ console.log(person) // 'john'
 
 • Interview questions - 15 (Gammastack 02-08-24 - Banglore - wfh - Node)
 Angular:- 
-  Angular:- 
   1. What's is selector in angular?
   2. How many bindings are there in angular?
   3. How to share data between the components?
@@ -328,6 +346,7 @@ Node:-
 Programs:- 
 1.  Expected output:- {"depA":["userA","userD"],"depB":["userE,"userF"]}
 
+```javascript
 const inputArray = [
   {name:"userA", deptId:"depA"},
   {name:"userB", deptId:"depC"},
@@ -337,14 +356,16 @@ const inputArray = [
   {name:"userF", deptId:"depB"},
   {name:"userG", deptId:"depC"},
 ]
+```
 
 inputArray = []
+```javascript
 let obj = {}
 for(let i=0; i< inputArray.length; i++){
  inputArray[i].deptId = [inputArray[i].name]
  let deptId = inputArray[i].deptId
  let name = inputArray[i].name
-    
+
   if(!obj[deptId]){
         obj[deptId] = []
    }
@@ -353,25 +374,36 @@ for(let i=0; i< inputArray.length; i++){
    obj[deptId].push(name)
 }
 console.log(obj)
+```
 
-// Calculate the 2nd highest salary of user
-// // select name from users limit 1;
+```sql
+-- Calculate the 2nd highest salary of user
+-- select name from users limit 1;
 select salary from employee where salary < (select salary from employee);
+```
 
+```javascript
 // Show only one entry using having 
 // select 1 from users group by id having sum(1) > 0;
+```
 
 
 Guess the output:- 
+```javascript
 const a ={} 
 const b = {} 
+```
 
+```javascript
  const k = {...a,...b}
  a.data = {user_id:12345}
 const c = a
+```
 
+```javascript
 console.log("c = ",c)
 console.log("c = ",k)
+```
 
 
 ---------------------------------------- 
@@ -382,15 +414,20 @@ Angular:
 1. What is Subjects. (Both observable and observer are subject)
 2. Dependency injection?
 3. How many types of loading pages. (Eager Loading, Lazy Loading, Preloading)
-4. Can We lazy load modules in angular? (Yes - ex. {
+4. Can We lazy load modules in angular? 
+```typescript
+// (Yes
+//  - ex. 
+{
    path: 'admin',
    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
-})
+}
+// )
+```
 5. What is <!DOCTYPE html> ? (It tells the browser to render in standard mode and not in quirk mode which uses old html and behaves inconsistently)
 6. What are the features in angular 13 (TypeScript 4.4 & RxJS 7.4 and other), and what features are in latest angular? (angular 20)
 7. What is Multicasting in angular? ((via RxJS), multicasting means sharing a single observable execution with multiple subscribers — so that all subscribers receive the same values emitted by the observable.  e.g. .pipe(share()))
 8. sessionStorage vs localStorage.
-9.  
 
 Node:
 1. Buffer in node. (A Buffer is a temporary memory space in Node.js used to store binary data, especially when working with streams, files, or network.)
@@ -398,8 +435,8 @@ Node:
 3. Hoisting
 4. Closure
 5. Guess the output
-// Encora Pune
 
+```javascript
 function func1(){
   setTimeout(()=>{
     console.log(x);
@@ -408,35 +445,37 @@ function func1(){
   var x = 2;
   let y = 12;
 }
-
 func1();
-
-OP - 2   12
-// -------------------------------
+// OP - 2   12
+```
  
+```javascript
 function func2(){
   for(var i = 0; i < 3; i++){
     setTimeout(()=> console.log(i),2000);
 } }
 func2();
-
-OP - 3  3  3
-// -------------------------------
+// OP - 3  3  3
+```
  
+```javascript
 function func2(){
   for(let  i = 0; i < 3; i++){
     setTimeout(()=> console.log(i),2000);
+  }
 }
-}
-
 func2();
-// -------------------------------
+// op: 0 1 2
+```
  
+```javascript
 console.log("A" - 1); // NaN
 console.log(2 + "-2" + "2"); // 2-22
 console.log("Hello" - "World" + 78); // NaN
+```
 // -------------------------------
 IIFE - Immediately Invoked Function Expressions.
+```javascript
 var x = 23;
 (function(){
   var x = 43;
@@ -447,8 +486,13 @@ var x = 23;
   })();
 })();
 
-OP - NaN <-- because of the closure inside random function x will be undefined and undefied++ => NaN. Because x is not intialized yet
-if var x = 21 commented then result => 44
+// op: NaN
+
+// OP - NaN <-- because of the closure inside random function x will be undefined and undefied++ => NaN. Because x is not intialized yet
+// if var x = 21 commented then result => 44
+```
+
+```javascript
 // -------------------------------
 (function(a){
   return (function(){
@@ -457,18 +501,19 @@ if var x = 21 commented then result => 44
   })()
 })(45);
 
-OP - 45
-// -------------------------------
- 
+// OP - 45
+```
+
+
+```javascript
 for(var i = 0; i < 3; i++){
     function func2(num){ 
          setTimeout(()=> console.log(num), 2000);
      }
      func2(i); 
 }
-
-OP - 0  1  2
-// -------------------------------
+// OP - 0  1  2
+```
 
 
 • Neosoft Pune 1st round 24-06-2025 (Tuesday)
@@ -478,6 +523,7 @@ OP - 0  1  2
 4. Pros & Cons of JWT.
 5. Git workflow? (commit on develop => pull req to stage => stage to prod )
 6. coding questions.
+```javascript
 // ------------------------------- 
 // get required prefix matching in all array
 
@@ -493,13 +539,16 @@ for(let i =1; i < strArr.length; i++){
 }
 console.log(prefix)
 return prefix;
+```
 
+```javascript
 // write update query in mongodb
 /*
 collection:
 {name:
 age: ,
 friends: [{name: 'friend1'}, {name: 'friend2'}]}
+*/ 
 
 Ans =>
     db.users.updateOne(
@@ -511,7 +560,9 @@ Ans =>
     { $push: { friends: { name: "friend3" } } }
     );
 */
+```
 
+```javascript
 // get all users whos freind length is greater than 10
 /*
 db.users.find({
@@ -519,18 +570,66 @@ db.users.find({
 });
 */
 // ------------------------------- 
+```
 
 • Neosoft Pune 2nd round- Technical Coding Round - 26-06-2025 (Thursday) 
 Angular: 
-1. ng-container vs ng-content vs ng-template [
-  🔶 1. <ng-container> = Logical grouping of elements without adding extra DOM. 
-      Structural directives (*ngIf, *ngFor) 
+## Angular Template Elements Summary
 
-🔷 2. <ng-content> = Used for content projection — inserting external content into a component. 
-      Custom reusable components 
+### 🔶 1. `<ng-container>`
+- **Purpose:** Logical grouping of elements without adding extra DOM.
+- **Used for:** Structural directives (`*ngIf`, `*ngFor`), grouping multiple elements conditionally.
+- **Example:**
+```html
+<ng-container *ngIf="isLoggedIn">
+  <p>Hello, user!</p>
+</ng-container>
+```
+**DOM Output (if true):**
+```html
+<p>Hello, user!</p>
+```
+_ℹ️ `<ng-container>` itself is not rendered in the DOM._
 
-🟪 3. <ng-template>  = Defines template blocks that aren’t rendered until used explicitly. 
-]
+---
+
+### 🔷 2. `<ng-content>`
+- **Purpose:** Content projection (insert parent content into child).
+- **Used in:** Custom reusable components (similar to slots in other frameworks).
+- **Example:**
+Parent Component:
+```html
+<app-alert>
+  <p>This is projected!</p>
+</app-alert>
+```
+Child Component (`app-alert.component.html`):
+```html
+<div class="alert">
+  <ng-content></ng-content>
+</div>
+```
+_Renders the parent content where `<ng-content>` is placed._
+
+---
+
+### 🟪 3. `<ng-template>`
+- **Purpose:** Defines template blocks not rendered until explicitly used.
+- **Used for:** Deferred rendering, reusable templates, `ngIf`, `ngFor`, `ngTemplateOutlet`.
+- **Example:**
+```html
+<ng-template #errorTemplate>
+  <p>Error loading data!</p>
+</ng-template>
+
+<div *ngIf="hasError; else successTemplate">
+  <ng-container *ngTemplateOutlet="errorTemplate"></ng-container>
+</div>
+
+<ng-template #successTemplate>
+  <p>Data loaded successfully!</p>
+</ng-template>
+```
 2. subject vs promises
 3. How to share data between two components?
 4. If we dont clear the clearInterval then what happens?. (it will keep running for every 1 sec, unnecesary check)
@@ -544,6 +643,8 @@ Node:
 1. What is authentication? How it is used?
 2. What is ideal expiration time in JWT?
 3. Guess the output:
+
+```javascript
 // ----------------2nd-------------------------------
 console.log("1. Synchronous log");
  
@@ -560,11 +661,11 @@ async function asyncFunc() {
   await Promise.resolve();
   console.log("4. After await inside async function");
 }
- 
 asyncFunc();
- 
 console.log("6. After async function call")
- 
+
+
+// output
 // 1. Synchronous log
 // 2. Inside async function
 // 6. After async function call
@@ -572,26 +673,33 @@ console.log("6. After async function call")
 // 4. After await inside async function
 // 5. setTimeout with 0ms
 
+/*
 Explain - 
 - first the synchronous task will run
 - microtasks (Promises)
 - macrotask (setTimeout)
-// -----------------------------------------------
+*/
+```
 
-typescript - type = any , never, utility function
-Yml file vs docker file in docker
-S3 - un... Url 
+
+- typescript - type = any , never, utility function
+- Yml file vs docker file in docker 
+
+
 //--------------------------------------------------
 • NSEIT - Mumbai (Thane) (06-07-2025 - Sunday)
 
+```javascript
 let a = 'krishna'
 {
   a = 'bawane'
 }
 console.log(a)
+```
 
 ---------------------------------------- 
 
+```javascript
 console.log("start");
 process.nextTick(() => {
   console.log('2 process.nextTick');
@@ -600,37 +708,40 @@ process.nextTick(() => {
 Promise.resolve().then(() => {
   console.log('3 Promise resolved');
 });
- 
+
 setTimeout(() => {
   console.log('4 setTimeout');
 }, 0);
- 
-console.log('5 End');
 
+console.log('5 End');
+/*
 Output:
 start
 5 End
 2 process.nextTick
 3 Promise resolved
 4 setTimeout
-//-------------------
+*/
+```
 
+
+```javascript
 // Get repeat numbers
 let arr = [1, 2, 1, 3, 5, 2]
 let repeat = []
 // console.log(arr.filter())
 
 for(let i = 0; i < arr.length; i++){
-  
   if(arr.filter(x => x == i).length > 1){
     repeat.push(arr[i])
   }
 }
-
 console.log(repeat)
+```
 
 ---------------------------------------- 
 
+```javascript
 // how many char are repeated 'a - count', 'n'
 let str1 = 'Krishna Bawane'
 let result = {}
@@ -641,11 +752,12 @@ for(let i = 0; i< str1.length; i++){
     result[str1[i]] = length
   }
 }
-
 console.log(result);
+```
 
 
 ----------------------------------------
+```javascript
 // closure
 function a(){
     let b = 'test'
@@ -655,6 +767,7 @@ function a(){
     c1();
 }
 a()
+```
 ----------------------------------------
 - primitive vs non primitive datatype
 - what is js?
@@ -714,6 +827,7 @@ Cloud:
 - EBS (Elastic Block Store -  It allows you to create storage volumes that can be attached to EC2 instances, acting like a hard drive for your cloud-based applications )
 
 Code:
+```javascript
 // Flat the array  without using inbuild function. (arr.flat(2))
 
 let arr = [1,2,5,[5,6, [7,3, [10,11]]], 9]
@@ -727,9 +841,10 @@ function accessArray(array){
     }
   }
 }
-
 accessArray(arr)
 console.log(flat)
+```
+
 ----------------------------------------
 PixelQueue Pune - 18-07-2025 (Friday)
 
@@ -744,12 +859,11 @@ PixelQueue Pune - 18-07-2025 (Friday)
 - What is cross site scripting (XSS)
 
 
+```javascript
 // Implement a rate limiter using in memory map or redis.
 const rateLimitMap = new Map()
 const WINDOW = 60000;
-
 const MAX_REQUEST = 5;
-
 function rateLimiter((req, res, next) => {
   const ip = req.ip
   const currentTime = Date.now()
@@ -757,18 +871,19 @@ function rateLimiter((req, res, next) => {
   if(!rateLimitMap.has(ip)){
     rateLimitMap.set(ip, [])
   }
-  
+
   const timeStamps = rateLimitMap.get(ip).filter(
       ts => currentTime - ts < WINDOW
     )
     timeStamps.push(currentTime)
     rateLimitMap.set(ip, timeStamps)
-    
+
     if(timeStamps.length > MAX_REQUEST){
       return res.send('To Many request, try again later')
     }
     next()
 })
+```
 
 ----------------------------------------
 Pickright Technologies - Banglore (21-07-2025 - Monday) - MEAN stack
@@ -788,20 +903,26 @@ Pickright Technologies - Banglore (21-07-2025 - Monday) - MEAN stack
 • Libuv ?
 • code - Write to get Longest Common Prefix in JS.
 
+```javascript
 let arr = ["flower","flw","flight", "flo"]
 let key = arr[0]
+```
 
 for(let i=1; i< arr.length; i++){
+```javascript
   // while(!arr[i].includes(key)){
   while(!arr[i].startsWith(key)){
     key = key.slice(0, -1)
+```
     
+```javascript
     if(!key) return ''
   }
 }
 console.log(key)
 ----------------------------------------
 • Torana - Angular - Nagpur 28-07-2025 (Monday)
+```
 
 Angular
  - RxJS operator
@@ -827,10 +948,14 @@ Angular
 - How to make page responsive
 - When code reviewing what things should be checked
 - guess the output - 
+```javascript
 console.log([1,2,3] == [1,2,3])
 console.log([1,2,3] === [1,2,3])
 console.log(({key: '1,2,3'} == {key: '1,2,3'}))
 console.log(({key: '1,2,3'} === {key: '1,2,3'}))
+
+// OP: all false because object compare by memory address
+```
 
 OP- all false (non premitive check by the memory address)
 - How did you check the logs in node js? (wintson package - logger)
@@ -861,12 +986,14 @@ app.get() handles GET requests for a specific route.)
 - Microservices calls or how the communication happens with microservices?
 - Why we use Redis? (asynchronous call - Tools: RabbitMQ, Kafka, Redis Pub/Sub, NATS , syncronous - Libraries used: axios, node-fetch, http, express )
 - Transactions? If we sending money from acc A to acc B then how it is done with transactions?
+```javascript
    ✅ Example: Sending money from Account A to Account B 
    1️⃣ Start a transaction.
    2️⃣ Debit Account A (subtract amount).
    3️⃣ Credit Account B (add amount).
    4️⃣ If both succeed → COMMIT transaction.
    5️⃣ If any fails → ROLLBACK (undo changes). 
+```
 
 - Normalisation vs denormalisation 
 - How do you completed the tasks in your company? What structure follow? (We followed Agile with Jira for task tracking, GitHub for code reviews, and CI/CD pipelines for deployment. Tasks were completed in sprints with proper testing and peer reviews. )
@@ -874,10 +1001,11 @@ app.get() handles GET requests for a specific route.)
 
 CODE - 
 ----########
+```javascript
 // Given an array arr[] containing only 0s, 1s, and 2s. Sort the array in ascending order.
 // Input:  [0, 1, 2, 0, 1, 2]
 // Output: [0, 0, 1, 1, 2, 2]
- 
+
  let arr = [0, 1, 2, 0, 1, 2]
  let count0 = 0, count1 = 0, count2=0
  
@@ -897,30 +1025,34 @@ CODE -
   else arr[i] = 2
  }
  console.log(arr)
+```
 
 ----######## Guess the output
+```javascript
 function createCounter() {
   let count = 0;
- 
+
   return function () {
     count++;
     console.log(count);
   };
 }
- 
 const counter1 = createCounter();
 const counter2 = createCounter();
- 
+
 counter1();  // 1 
 counter1(); // 2
 counter2();  // 1
+```
+ 
 ----########
+```javascript
 console.log('A');
  
 setTimeout(() => {
   console.log('B');
 }, 0);
- 
+
 Promise.resolve().then(() => {
   console.log('C');
   setTimeout(() => {
@@ -935,9 +1067,10 @@ Promise.resolve().then(() => {
 queueMicrotask(() => {
   console.log('F');
 });
- 
+
 console.log('G');
 
+/*
 OP - 
 A
 G
@@ -946,8 +1079,12 @@ E
 F
 B
 D
+*/
+```
+
 ----########  Why this is print undefined?
 
+```javascript
 var a = 1;
 function foo() {
   console.log(a); // it is initialize var with undefined. It is inside scope thats why above var a = 1 is not to do with below because of hoisting
@@ -955,11 +1092,13 @@ function foo() {
 }
 foo(); // undefined
 ----######## 
+```
 
 ---------------------------------------- 
 code:  Tecnotree
 
 
+```javascript
 // valid paranthesis or not
 /*
 Input: s = "()[]{}"
@@ -968,16 +1107,16 @@ Output: true
 Input: s = "()["
 Output: false
  */
- 
+
 function validPara(input){
   let matchPara = {
     '[' : ']',
     '(': ')',
     '{': '}'
   }
-  
+
   let stack = []
-  
+
   for(let i=0; i< input.length; i++){
     if(matchPara[input[i]]){
       stack.push(matchPara[input[i]])
@@ -989,27 +1128,32 @@ function validPara(input){
 }
 let input = '[[]()'
 console.log(validPara(input))
-
+```
 ---------------------------------------- 
 Vinove - Remote - Mean Stack
 
 1. Write a syntax for behavioral subject.
 Ans =>  
+```typescript
 const subject = new BehaviorSubject<string>('Initial Value');
 // Subscribe
 subject.subscribe(value => console.log(value));
 // Emit new value
 subject.next('New Value');
+```
  
 2. Conver this json into formGroup.
+```typescript
  const data = {
     "stack": "MEAN",
     "version": "15",
     "environments": {
       "dev": "https://dev.com",
       "prod": "https://prod.com",
-      "uat":
-Ans => 
+      "uat": "https://uat.com",
+    }
+ }
+// Ans => 
 this.form = new FormGroup({
   stack: new FormControl('MEAN'),
   version: new FormControl('15'),
@@ -1019,17 +1163,20 @@ this.form = new FormGroup({
     uat: new FormControl('https://uat.com')
   })
 });
-- How can we setValue for environments => 
--> setValue = this.form.get('environment')?.setValue({
+// - How can we setValue for environments => 
+// -> setValue = 
+this.form.get('environment')?.setValue({
   dev: 'https://dev.com',
   prod: 'https://prod.com',
   uat: 'https://uat.com'
 });
--> patchValue = this.form.get('environment')?.patchValue({
+// -> patchValue = 
+this.form.get('environment')?.patchValue({
   prod: 'https://prod-updated.com'
 })
-3. difference between setValue and patchValue 
-Ans => setValue updates all form controls, patchValue updates only specified controls.
+// 3. difference between setValue and patchValue 
+// Ans => setValue updates all form controls, patchValue updates only specified controls.
+```
 
 4. What is forkjoin?
 Ans => forkJoin in Angular is an RxJS operator that runs multiple observables in parallel and emits a single combined result when all complete. 
@@ -1044,10 +1191,12 @@ Deep Copy → Creates a completely independent copy, including all nested object
 
 6. Write a program to get the sum of these array = [1, 2, [3, 4], 5]
 =>  
+```javascript
   let value = [1, 2, [3, 4], 5]
   let arr = value.flat(1)
   let result = arr.reduce((a,b) => a+b)
   console.log(result)
+```
 
 ----------------------------------------------------------
 • Emorphis - 13-08-2025 - MEAN Stack - client round (Wednesday)
