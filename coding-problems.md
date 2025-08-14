@@ -9,6 +9,30 @@
 - Reverse string
 - Find missing elements between min & max in array
 - Valid parentheses check
+
+```javascript
+function validPara(input){
+  let matchPara = {
+    '[' : ']',
+    '(': ')',
+    '{': '}'
+  }
+  
+  let stack = []
+  
+  for(let i=0; i< input.length; i++){
+    let char = input[i]
+    if(matchPara[char]){
+      stack.push(matchPara[char])
+    }else if(stack.pop() != char){
+      return false
+    }
+  }
+  return stack.length === 0
+}
+let input = '[{]()'
+console.log(validPara(input))
+```
 - Group objects by property (deptId → array of names)
 - Sort array of 0s, 1s, 2s
 - Longest common prefix
