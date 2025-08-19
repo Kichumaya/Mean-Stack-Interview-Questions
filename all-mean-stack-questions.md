@@ -14,11 +14,10 @@ Technical Question:
 => 
 Output = > 1 4 3 2
 
-2.
-Find two elements in an array such that their sum equals target return indexes
+2. Find two elements in an array such that their sum equals target return indexes
 arr = [2,4,9,6,5] and element target = 14
 
-3.
+3. Guess the output
 ```javascript
 console.log('start');
 const promise1 = new Promise((resolve, reject) => {
