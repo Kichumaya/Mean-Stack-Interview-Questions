@@ -54,8 +54,7 @@ Important concepts:-
 9. Event loop
 10. New features in ES6 node js
 11. Is asynchronous function present in javascript? Then why node js is called asynchronous? Is it came from node or js?
-12. If I write console.log in normal function it's print. But same running in arrow function then it's not printing, why?
-13. Body parser node js?
+12. Body parser node js?
 
 • INTERVIEW-1 Questions (javascript & node.js):
 1. Square of even number return in array using map.
